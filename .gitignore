@@ -1,0 +1,8 @@
+#build file
+*.pyc
+
+# generated files
+venv/
+
+# Intellij project files
+.idea/
