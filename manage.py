@@ -1,3 +1,8 @@
+# coding=utf-8
+import sys
+
+reload(sys)
+sys.setdefaultencoding("utf-8")
 import os
 
 from app import create_app, db
@@ -6,8 +11,8 @@ from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 
 app = create_app('default')
+migrate = Migrate(app, db)
 manager = Manager(app)
-migrate = Migrate(app)
 
 
 def make_shell_context():
@@ -24,6 +29,7 @@ def test():
     import unittest
     tests = unittest.TestLoader().discover('tests')
     unittest.TextTestRunner(verbosity=2).run(tests)
+
 
 if __name__ == "__main__":
     manager.run()
